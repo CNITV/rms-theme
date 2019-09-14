@@ -1,12 +1,12 @@
-name = "Blank"
+name = "RMS"
 license = "MIT"
-licenselink = "https://github.com/vimux/blank/blob/master/LICENSE"
-description = "Starter Hugo theme for developers."
-homepage = "https://github.com/vimux/blank/"
-tags = ["blog", "plain", "blank", "starter", "development"]
-features = ["blog"]
+licenselink = "https://github.com/CNITV/rms-theme/blob/master/LICENSE"
+description = "RMS theme. Based on vimux/blank"
+homepage = "https://github.com/CNITV/rms-theme"
+tags = []
+features = []
 min_version = "0.20"
 
 [author]
-  name = "Vimux"
-  homepage = "https://github.com/vimux"
+  name = "Tudor Roman"
+  homepage = "https://tudorr.ro/"

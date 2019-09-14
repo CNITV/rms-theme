@@ -1,0 +1,22 @@
+<table>
+	<thead>
+		<tr>
+			<td>Nr.</td>
+			<td></td>
+			<td>First name</td>
+			<td>Last name</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		{{ range $i, $r := getCSV "," (.Get "file") }}
+		<tr>
+			<td>{{ add $i 1 }}</td>
+			<td>{{ index $r 0 }}</td>
+			<td>{{ index $r 1 }}</td>
+			<td>{{ index $r 2 }}</td>
+			<td>{{ index $r 3 }}</td>
+		</tr>
+		{{ end }}
+	</tbody>
+</table>

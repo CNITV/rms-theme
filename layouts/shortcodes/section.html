@@ -1,0 +1,20 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+<section>
+	<div class="inline">
+	{{ with .Get "flag" }}
+	<img src="/flags/{{ . }}.gif" />
+	{{ end }}
+	<h3>{{ .Get "title" }}</h3>
+	{{ with .Get "link" }}
+		<a style="margin-left: 10px" href="{{ . }}">[click to download]</a>
+	{{ end }}
+	</div>
+	{{ .Inner }}
+	<style>
+		.inline {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	</style>
+</section>
