@@ -1,11 +1,13 @@
 {{ define "main" }}
 	<main>
 		<article>
-			<h1>{{ .Title }}</h1>
-			{{ with .Date }}<time>{{ .Format "02.01.2006 15:04" }}</time>{{ end }}
-			<div>
+			{{ $date := "" }}
+			{{ if .Date }}{{ $date = safeHTML (print "<p><time>" (.Date.Format "02.01.2006 15:04") "</time></p>") }}{{ end }}
+			<div class="content">
+				{{ partial "section.html" (dict "title" .Title "content" $date) }}
 				{{ .Content }}
 			</div>
+			<!--
 			<div>
 				<ul id="tags">
 					{{ range .Params.tags }}
@@ -13,7 +15,7 @@
 					{{ end }}
 				</ul>
 			</div>
+			-->
 		</article>
 	</main>
-{{ partial "sidebar.html" . }}
 {{ end }}

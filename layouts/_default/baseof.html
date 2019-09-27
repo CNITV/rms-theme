@@ -7,14 +7,28 @@
 	<title>{{ .Title }}</title>
 	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+	<link rel="stylesheet" href="{{ "css/normalize.css" | relURL }}">
 	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 	{{ with .OutputFormats.Get "RSS" -}}
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
 </head>
 <body>
-	{{ partial "header" . }}
-	{{ block "main" . }}{{ end }}
-	{{ partial "footer" . }}
+	<main>
+		{{ partial "header.html" . }}
+		<div class="container">
+			<section class="col main">
+				{{ block "main" . }}{{ end }}
+			</section>
+			<aside class="col sidebar">
+				{{ partial "sidebar.html" . }}
+			</aside>
+			<!--
+			<aside class="space">
+			</aside>
+			-->
+		</div>
+		{{ partial "footer.html" . }}
+	</main>
 </body>
 </html>

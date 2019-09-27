@@ -1,11 +1,17 @@
 <aside>
-	<nav>
+	<nav class="nav">
 		<ul>
+			{{ $permalink := print (relURL .Permalink) }}
 			{{ range .Site.Menus.main }}
 			<li>{{ if .URL }}<a href="{{ .URL }}">{{ end }}{{ .Name }}{{ if .URL }}</a>{{ end }}</li>
 				{{ with .Children }}<ul>
 				{{ range . }}
-					<li><a href="{{ .URL }}">{{ .Name }}</a></li>
+					{{ $url := print .URL }}
+					{{ $class := "" }}
+					{{ if (eq $permalink $url) }}
+						{{ $class = "selected" }}
+					{{ end }}
+					<li><a class="{{$class}}" href="{{ .URL }}">{{ .Name }}</a></li>
 				{{ end }}
 				</ul>{{ end }}
 
