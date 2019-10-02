@@ -1,0 +1,4 @@
+{{ range readDir "/static/assets/sponsors" }}
+{{ $imgURL := print "assets/sponsors/" .Name | absURL }}
+<img class="sponsor" src="{{ $imgURL }}" />
+{{ end }}
