@@ -13,6 +13,7 @@
 	<meta name="author" content="{{ . }}">{{ end }}
 	<link rel="stylesheet" href="{{ "css/normalize.css" | relURL }}">
 	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+	<link ref="icon" href="{{ relURL "favicon.ico" }}">
 	{{ with .OutputFormats.Get "RSS" -}}
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
