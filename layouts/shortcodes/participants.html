@@ -1,0 +1,29 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $last_team := "" }}
+{{ $printed_leaders := false }}
+{{ $first := true }}
+{{ range $i, $r := getCSV "," (.Get "file") }}
+	{{ $team := index $r 0 }}
+	{{ $country := (index (findRE "^\\w+\\b" $team 1) 0 | lower) }}
+	{{ $name := printf "%s %s" (index $r 1) (index $r 2) }}
+	{{ $leader := eq "DA" (index $r 3) }}
+	{{ if ne $team $last_team }}
+		{{ $last_team = $team }}
+		{{ $printed_leaders = false }}
+		{{ if not $first }}
+			</ol>
+		{{ end }}
+		{{ $first = false }}
+		{{ partial "section.html" (dict "flag" $country "title" $team) }}
+		<h3>Leaders:</h3>
+		<ol>
+	{{ end }}
+	{{ if and (not $leader) (not $printed_leaders) }}
+		{{ $printed_leaders = true }}
+		</ol>
+		<h3>Students:</h3>
+		<ol>
+	{{ end }}
+	<li>{{ $name }}</li>
+{{ end }}
+		</ol>

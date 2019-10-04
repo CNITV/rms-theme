@@ -1,12 +1,9 @@
-<section>
-	<div class="header">
-		{{ with .flag }}
-		<img src="/flags/{{ . }}.gif" />
-		{{ end }}
-		<h2>{{ .title }}</h2>
-		{{ with .link }}
-		<a class="action" href="{{ . }}">DOWNLOAD</a>
-		{{ end }}
-	</div>
-	{{ .content }}
-</section>
+<div class="header">
+	{{ with .flag }}
+	<img src="/assets/flags/{{ . }}.svg" />
+	{{ end }}
+	<h2>{{ .title }}</h2>
+	{{ with .link }}
+	<a class="action" href="{{ . }}">DOWNLOAD</a>
+	{{ end }}
+</div>
