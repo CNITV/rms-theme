@@ -5,7 +5,7 @@ body {
 
 header {
 	background-color: #00313D;
-	background-image: url("/assets/header.svg");
+	/*background-image: url("{{ relURL "/assets/header.svg" }}");*/
 
 	height: 32rem;
 	max-height: 100vh;
