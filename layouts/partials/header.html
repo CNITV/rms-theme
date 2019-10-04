@@ -1,9 +1,9 @@
 <header>
 	<!-- <h1 href="{{ .Site.BaseURL }}">{{ .Site.Title }}</h1> -->
-	<img class="logo" src="/assets/logo.png">
+	<img class="logo" src="{{ "/assets/logo.png" | relURL }}">
 	<div class="info">
 		<span>{{ .Site.Params.heading }}</span>
-		<a href="/organisation/programme">View schedule&nbsp;&nbsp;→</a>
+		<a href="{{ "/organisation/programme" | relURL }}">View schedule&nbsp;&nbsp;→</a>
 	</div>
 	<div class="bar">
 		<span>SUPPORTED BY</span>
