@@ -4,7 +4,7 @@
 {{ $first := true }}
 {{ range $i, $r := getCSV "," (.Get "file") }}
 	{{ $team := index $r 0 }}
-	{{ $country := (index (findRE "^\\w+\\b" $team 1) 0 | lower) }}
+	{{ $country := lower (replaceRE " [\\-0-9]+.*$" "" $team) }}
 	{{ $name := printf "%s %s" (index $r 1) (index $r 2) }}
 	{{ $leader := eq "DA" (index $r 3) }}
 	{{ if ne $team $last_team }}
