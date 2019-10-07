@@ -97,7 +97,7 @@ header .bar .sponsorList {
 
 	overflow: -moz-scrollbars-none;
 	overflow-y: hidden;
-	overflow-x: scroll;
+	overflow-x: auto;
 	white-space: nowrap;
 	margin: 0;
 }
@@ -108,7 +108,7 @@ header .bar .sponsorList::-webkit-scrollbar {
 
 header .bar .sponsor {
 	display: inline-block;
-	height: 100%;
+	height: 85%;
 	margin: 0 1rem;
 }
 
@@ -191,6 +191,58 @@ section p {
 	padding: 0 1rem;
 }
 
+section p a {
+	position: relative;
+
+	text-decoration: none;
+	color: #36648b;
+
+	z-index: 1;
+}
+
+section p a::before {
+	display: block;
+	position: absolute;
+	content: "";
+
+	bottom: -.125rem;
+	left: -.25rem;
+	width: 100%;
+	height: .5rem;
+
+	background: #0083A322;
+
+	transition: .125s all;
+
+	z-index: -1;
+}
+
+section p a:hover::before {
+	height: calc(100% + .5rem);
+
+	bottom: -.25rem;
+	left: -.25rem;
+	width: calc(100% + .5rem);
+
+	background: #0083A344;
+}
+
+section p a img {
+	display: block;
+	max-width: 480px !important;
+	width: 100%;
+	margin: 4rem auto;
+}
+
+.big {
+	display: block;
+	text-align: center;
+}
+
+.big a {
+	font-size: 1.5rem;
+}
+
 h2 {
 	display: inline-block;
 	position: relative;
@@ -200,7 +252,20 @@ h2 {
 
 	font-size: 2rem;
 
-	color: #20351D;
+	color: #00313D;
+}
+
+h3 {
+	display: inline-block;
+
+	margin: 0;
+	margin-top: 2rem;
+
+	font-size: 1.5rem;
+}
+
+h4 {
+	font-size: 1.25rem;
 }
 
 h2::before {
@@ -222,6 +287,7 @@ h2::before {
 	vertical-align: text-bottom;
 	margin-right: 1rem;
 	height: 2rem;
+	box-shadow: -.5rem .5rem 0 0 #0083A322, 0px 0px 32px 0px #0003;
 }
 
 .header .action {
@@ -234,6 +300,10 @@ h2::before {
 	padding: .5rem;
 
 	vertical-align: text-bottom;
+}
+
+.previous  {
+	margin: 2rem;
 }
 
 .sidebar a {
@@ -253,4 +323,15 @@ h2::before {
 
 .sidebar a.selected {
 	background: #0083A322;
+}
+
+footer {
+	text-align: center;
+	color: #CCC;
+	font-weight: bold;
+	font-size: .75rem;
+}
+
+footer a {
+	color: inherit;
 }

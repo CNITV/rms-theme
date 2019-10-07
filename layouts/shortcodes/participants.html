@@ -15,13 +15,13 @@
 		{{ end }}
 		{{ $first = false }}
 		{{ partial "section.html" (dict "flag" $country "title" $team) }}
-		<h3>Leaders:</h3>
+		<h4>Leaders:</h4>
 		<ol>
 	{{ end }}
 	{{ if and (not $leader) (not $printed_leaders) }}
 		{{ $printed_leaders = true }}
 		</ol>
-		<h3>Students:</h3>
+		<h4>Students:</h4>
 		<ol>
 	{{ end }}
 	<li>{{ $name }}</li>

@@ -2,7 +2,11 @@
 	{{ with .flag }}
 	<img src="{{ printf "/assets/flags/%s.svg" . | relURL }}" />
 	{{ end }}
+	{{ if .flag }}
+	<h3>{{ .title }}</h3>
+	{{ else }}
 	<h2>{{ .title }}</h2>
+	{{ end }}
 	{{ with .link }}
 	<a class="action" href="{{ . }}">DOWNLOAD</a>
 	{{ end }}
