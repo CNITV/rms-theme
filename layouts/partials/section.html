@@ -1,6 +1,10 @@
 <div class="header">
 	{{ with .flag }}
-	<img src="{{ printf "/assets/flags/%s.svg" . | relURL }}" />
+		{{ if eq . "vianu" }}
+			<img src="{{ printf "/assets/flags/%s.png" . | relURL }}" />
+		{{ else }}
+			<img src="{{ printf "/assets/flags/%s.svg" . | relURL }}" />
+		{{ end }}
 	{{ end }}
 	{{ if .flag }}
 	<h3>{{ .title }}</h3>
