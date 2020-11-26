@@ -291,7 +291,7 @@ h2::before {
 }
 
 .header .action {
-	color: #CCC;
+	color: #666;
 	font-weight: bold;
 	font-size: .75rem;
 	text-transform: uppercase;
