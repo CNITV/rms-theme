@@ -2,10 +2,10 @@
 {{ $printed_leaders := false }}
 {{ $first := true }}
 {{ range $i, $r := getCSV "," (.Get "file") }}
-	{{ $team := index $r 1 }}
-	{{ $country := lower (replaceRE " [\\-0-9]+.*$" "" $team) }}
+	{{ $team := index $r 2 }}
+	{{ $country := lower (index $r 1) }}
 	{{ $name := index $r 0 }}
-	{{ $leader := index $r 2 }}
+	{{ $leader := index $r 3 }}
 	{{ if ne $team $last_team }}
 		{{ $last_team = $team }}
 		{{ $printed_leaders = false }}
