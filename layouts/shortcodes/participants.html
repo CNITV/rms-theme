@@ -3,9 +3,10 @@
 {{ $first := true }}
 {{ range $i, $r := getCSV "," (.Get "file") }}
 	{{ $team := index $r 2 }}
-	{{ $country := lower (index $r 1) }}
-	{{ $name := index $r 0 }}
-	{{ $leader := index $r 3 }}
+	{{ $country := lower (index $r 3) }}
+	{{ $first_name := index $r 0 }}
+	{{ $last_name := index $r 1 }}
+	{{ $leader := index $r 4 }}
 	{{ if ne $team $last_team }}
 		{{ $last_team = $team }}
 		{{ $printed_leaders = false }}
@@ -23,6 +24,6 @@
 		<h4>Students:</h4>
 		<ol>
 	{{ end }}
-	<li>{{ $name }}</li>
+	<li>{{ $first_name }} {{ $last_name }}</li>
 {{ end }}
 		</ol>
