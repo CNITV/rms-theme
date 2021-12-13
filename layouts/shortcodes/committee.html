@@ -1,17 +1,15 @@
 <table>
 	<thead>
 		<tr>
-			<td>Nr.</td>
-			<td></td>
-			<td>First name</td>
-			<td>Last name</td>
-			<td></td>
+			<th>First name</th>
+			<th>Last name</th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		{{ range $i, $r := getCSV "," (.Get "file") }}
 		<tr>
-			<td>{{ add $i 1 }}</td>
 			<td>{{ index $r 0 }}</td>
 			<td>{{ index $r 1 }}</td>
 			<td>{{ index $r 2 }}</td>

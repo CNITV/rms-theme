@@ -335,3 +335,29 @@ footer {
 footer a {
 	color: inherit;
 }
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+thead {
+	font-weight: bold;
+}
+
+tr:hover {
+	background: #cb88d315;
+}
+
+th {
+	background: #FFF;
+	padding: .25em .5em;
+	text-align: left;
+	border-bottom: 2px solid #cb88d344;
+}
+
+td {
+	padding: .25em .5em;
+	text-align: left;
+	border-top: 1px solid #cb88d344;
+}
