@@ -145,6 +145,7 @@ header .bar .sponsor {
 	text-align: justify;
 	text-justify: inter-word;
 	order: 1;
+	overflow-x: hidden;
 }
 
 .main img {
@@ -334,6 +335,10 @@ footer {
 
 footer a {
 	color: inherit;
+}
+
+.overflow-x {
+	overflow-x: auto;
 }
 
 table {

@@ -1,20 +1,22 @@
-<table>
-	<thead>
-		<tr>
-			<th>First name</th>
-			<th>Last name</th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		{{ range $i, $r := getCSV "," (.Get "file") }}
-		<tr>
-			<td>{{ index $r 0 }}</td>
-			<td>{{ index $r 1 }}</td>
-			<td>{{ index $r 2 }}</td>
-			<td>{{ index $r 3 }}</td>
-		</tr>
-		{{ end }}
-	</tbody>
-</table>
+<div class="overflow-x">
+	<table>
+		<thead>
+			<tr>
+				<th>First name</th>
+				<th>Last name</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{ range $i, $r := getCSV "," (.Get "file") }}
+			<tr>
+				<td>{{ index $r 0 }}</td>
+				<td>{{ index $r 1 }}</td>
+				<td>{{ index $r 2 }}</td>
+				<td>{{ index $r 3 }}</td>
+			</tr>
+			{{ end }}
+		</tbody>
+	</table>
+</div>
