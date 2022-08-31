@@ -5,7 +5,10 @@
 			{{ if .Date }}{{ $date = safeHTML (print "<p><time>" (.Date.Format "02.01.2006 15:04") "</time></p>") }}{{ end }}
 			<div class="content">
 				{{ if not .Params.no_header }}
-				{{ partial "section.html" (dict "title" .Title "content" $date) }}
+				<div class="header">
+					<h2>{{ .Title }}</h2>
+				</div>
+				<!-- {{ partial "section.html" (dict "title" .Title "content" $date) }} -->
 				{{ end }}
 				{{ .Content }}
 			</div>

@@ -1,26 +1,31 @@
 body {
-	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	font-family: 'Space Grotesk',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 	line-height: 2rem;
+	letter-spacing: -0.5pt;
 }
 
 header {
-	background-color: #2B092F;
+	background-color: #f8faff;
 
-	height: 32rem;
+	height: 24rem;
 	max-height: 100vh;
 
 	text-align: center;
-	color: white;
+	color: black;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #4b70be10;
 }
 
 header .logo {
-	margin-top: 4rem;
-	max-width: 24rem;
+	margin-top: 3rem;
+	max-width: 32rem;
 	width: 75%;
 
 	color: white;
@@ -37,13 +42,24 @@ header .info span {
 header .info a {
 	position: relative;
 	text-decoration: none;
-	color: white;
+	color: black;
 	font-weight: 500;
+
+	padding: .25rem .5rem;
+	margin: 0 -.5rem;
+
+	background: linear-gradient(0deg, #4b70be18, #4b70be18) no-repeat left bottom / calc(100% - .5rem) 1rem;
+	transition: background-size 125ms;
 
 	z-index: 1;
 }
 
-header .info a::before {
+header .info a:hover {
+	background-size: 100% 100%;
+	background-position-x: left;
+}
+
+/* header .info a::before {
 	display: block;
 	position: absolute;
 	content: "";
@@ -53,7 +69,7 @@ header .info a::before {
 	width: 100%;
 	height: 1rem;
 
-	background: #cb88d322;
+	background: #4b70be18;
 
 	transition: .125s all;
 
@@ -67,8 +83,8 @@ header .info a:hover::before {
 	left: -.75rem;
 	width: 120%;
 
-	background: #cb88d322;
-}
+	background: #4b70be18;
+} */
 
 header .bar {
 	position: relative;
@@ -80,10 +96,8 @@ header .bar {
 	line-height: 1rem;
 	font-size: .75rem;
 	font-weight: 500;
-	color: #FFF9;
+	color: #4b70be88;
 	letter-spacing: 1px;
-
-	background: #0006;
 }
 
 header .bar span {
@@ -173,7 +187,7 @@ nav.nav > ul > li {
 	padding: 0 .5rem;
 	margin-top: 0;
 
-	color: #CBC;
+	color: #4b70be88;
 	font-weight: bold;
 	font-size: .75rem;
 	text-transform: uppercase;
@@ -193,39 +207,21 @@ section p {
 }
 
 section p a {
-	position: relative;
-
 	text-decoration: none;
-	color: #4c2a50;
+	color: #0d275e;
+
+	padding: 0 .25rem;
+	margin: 0 -.25rem;
+
+	background: linear-gradient(0deg, #4b70be18, #4b70be18) no-repeat left bottom / calc(100% - .5rem) .5rem;
+	transition: background-size 125ms;
 
 	z-index: 1;
 }
 
-section p a::before {
-	display: block;
-	position: absolute;
-	content: "";
-
-	bottom: -.125rem;
-	left: -.25rem;
-	width: 100%;
-	height: .5rem;
-
-	background: #cb88d322;
-
-	transition: .125s all;
-
-	z-index: -1;
-}
-
-section p a:hover::before {
-	height: calc(100% + .5rem);
-
-	bottom: -.25rem;
-	left: -.25rem;
-	width: calc(100% + .5rem);
-
-	background: #cb88d344;
+section p a:hover {
+	background-size: 100% 100%;
+	background-position-x: left;
 }
 
 section p a img {
@@ -246,14 +242,17 @@ section p a img {
 
 h2 {
 	display: inline-block;
-	position: relative;
 
-	margin: 0;
+	padding: 0 .25rem;
+	margin: 0 -.25rem;
 	margin-top: 2rem;
 
 	font-size: 2rem;
 
-	color: #19061b;
+	background: linear-gradient(0deg, #4b70be18, #4b70be18) no-repeat left bottom / calc(100% - .5rem) 1rem;
+	transition: background-size 125ms;
+
+	color: #0d1a36;
 }
 
 h3 {
@@ -269,26 +268,11 @@ h4 {
 	font-size: 1.25rem;
 }
 
-h2::before {
-	display: block;
-	position: absolute;
-	content: "";
-
-	bottom: -.25rem;
-	left: -.5rem;
-	width: 100%;
-	height: 1rem;
-
-	background: #cb88d322;
-
-	z-index: -1;
-}
-
 .header img {
 	vertical-align: text-bottom;
 	margin-right: 1rem;
 	height: 2rem;
-	box-shadow: -.5rem .5rem 0 0 #cb88d322, 0px 0px 32px 0px #0003;
+	box-shadow: -.5rem .5rem 0 0 #4b70be18, 0px 0px 32px 0px #0003;
 }
 
 .header .action {
@@ -310,7 +294,7 @@ h2::before {
 .sidebar a {
 	display: block;
 	padding: 0 1rem;
-	color: #4c2a50;
+	color: #0d275e;
 	text-decoration: none;
 	border-radius: .25rem;
 
@@ -323,12 +307,12 @@ h2::before {
 }
 
 .sidebar a.selected {
-	background: #cb88d322;
+	background: #4b70be18;
 }
 
 footer {
 	text-align: center;
-	color: #CBC;
+	color: #4b70be88;
 	font-weight: bold;
 	font-size: .75rem;
 }
@@ -351,18 +335,18 @@ thead {
 }
 
 tr:hover {
-	background: #cb88d315;
+	background: #4b70be10;
 }
 
 th {
 	background: #FFF;
 	padding: .25em .5em;
 	text-align: left;
-	border-bottom: 2px solid #cb88d344;
+	border-bottom: 2px solid #4b70be44;
 }
 
 td {
 	padding: .25em .5em;
 	text-align: left;
-	border-top: 1px solid #cb88d344;
+	border-top: 1px solid #4b70be44;
 }
