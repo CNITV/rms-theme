@@ -183,7 +183,7 @@ nav.nav ul {
 	font-weight: 500;
 }
 
-nav.nav > ul > li {
+summary {
 	padding: 0 .5rem;
 	margin-top: 0;
 
@@ -192,9 +192,51 @@ nav.nav > ul > li {
 	font-size: .75rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+
+	display: block;
+
+	user-select: none;
+	cursor: pointer;
 }
 
-article, nav.nav > ul > ul {
+summary::after {
+	margin-left: 1ch;
+	display: inline-block;
+	transition: 250ms;
+	content: '';
+	width: .5rem;
+	height: .5rem;
+
+	background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im04IDAtMyAzIDkgOS05IDkgMyAzIDEyLTEyeiIgZmlsbD0iIzRiNzBiZTg4Ii8+PC9zdmc+Cg==");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+details[open] summary::after {
+	transform: rotate(90deg);
+}
+
+details summary ~ * {
+	/* transform-origin: top center;
+	transform: scaleY(0); */
+	transition: .5s all;
+	max-height: 0rem;
+}
+
+details[open] summary ~ * {
+	/* animation: open .125s ease-in-out; */
+	/* transform: scaleY(1); */
+	max-height: 32rem;
+}
+
+@keyframes open {
+	0% {transform: scaleY(0);}
+	100% {transform: scaleY(1);}
+}
+  
+
+article, nav.nav ul {
 	margin-bottom: 1rem;
 }
 
