@@ -1,0 +1,7 @@
+{{ $imgDir := .path }}
+{{ $class := .class }}
+{{ $staticDir := print "/static/" $imgDir }}
+{{ range readDir $staticDir }}
+{{ $imgURL := print $imgDir .Name | absURL }}
+<img class="{{ $class }}" src="{{ $imgURL }}" />
+{{ end }}

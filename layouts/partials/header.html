@@ -6,9 +6,9 @@
 		<a href="{{ "/organisation/schedule" | relURL }}">View schedule&nbsp;&nbsp;→</a>
 	</div>
 	<div class="bar">
-		<span>SPONSORED BY</span>
+		<span>ORGANISED BY</span>
 		<div class="sponsorList">
-			{{ partial "sponsors.html" . }}
+			{{ partial "images.html" (dict "class" "sponsor" "path" "assets/sponsors/" ) }}
 		</div>
 	</div>
 </header>
