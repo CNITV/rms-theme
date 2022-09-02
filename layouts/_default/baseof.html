@@ -4,28 +4,41 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#002129">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="theme-color" content="{{ .Site.Params.baseColor }}">
+	
 	<title>{{ .Title }} | {{ .Site.Title }}</title>
 	{{ with .Site.Params.description }}
 	<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}
 	<meta name="author" content="{{ . }}">{{ end }}
 
-	<link rel="stylesheet" href="{{ "css/normalize.css" | relURL }}">
-	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+	{{ $css_options := dict "targetPath" "css/style.css" "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction) }}
+	{{ $style := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS $css_options }}
+	{{ if hugo.IsProduction }}
+		{{ $style = $style | minify | fingerprint }}
+	{{ end }}
+	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+	
+	{{ block "header_css" . }}{{ end }}
 
+	{{ block "favicon" . }}
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | relURL }}">
 	<link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon-32x32.png" | relURL }}">
 	<link rel="icon" type="image/png" sizes="16x16" href="{{ "/favicon-16x16.png" | relURL }}">
 	<link rel="manifest" href="{{ "/site.webmanifest" | relURL }}">
 	<link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | relURL }}" color="#002b7f">
 	<meta name="msapplication-TileColor" content="#002b7f">
-	<meta name="theme-color" content="#002b7f">
+	{{ end }}
 
+	{{ block "fonts" . }}
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+	{{ end }}
+
+	{{ block "head" . }}
+	{{ end }}
 
 	{{ if .Site.Params.useSlider }}
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css">
@@ -40,22 +53,19 @@
 	{{ if .Site.Params.useSlider }}
 	<script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.js"></script>
 	{{ end }}
-	<main>
-		{{ partial "header.html" . }}
-		<div class="container">
-			<section class="col main">
-				{{ block "main" . }}{{ end }}
-			</section>
-			<aside class="col sidebar">
-				{{ partial "sidebar.html" . }}
-			</aside>
-			<!--
-			<aside class="space">
-			</aside>
-			-->
-		</div>
-		{{ partial "footer.html" . }}
-	</main>
+
+	{{ partial "header.html" . }}
+
+	<div class="layout">
+		<section class="col main">
+			{{ block "main" . }}{{ end }}
+		</section>
+		<aside class="col sidebar">
+			{{ partial "sidebar.html" . }}
+		</aside>
+	</div>
+
+	{{ partial "footer.html" . }}
 </body>
 
 </html>

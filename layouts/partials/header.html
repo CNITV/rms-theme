@@ -1,6 +1,5 @@
 <header>
-	<!-- <h1 href="{{ .Site.BaseURL }}">{{ .Site.Title }}</h1> -->
-	<img class="logo" src="{{ "/assets/logo.svg" | relURL }}">
+	<img class="logo" src="{{ .Site.Params.logo | relURL }}">
 	<div class="info">
 		<span>{{ .Site.Params.heading }}</span>
 		<a href="{{ "/organisation/schedule" | relURL }}">View schedule&nbsp;&nbsp;→</a>

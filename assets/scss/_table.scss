@@ -1,0 +1,26 @@
+@import 'variables';
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+thead {
+	font-weight: bold;
+}
+
+tbody tr:hover {
+	background: map-get($primary, T100);
+}
+
+th {
+	padding: .25em .5em;
+	text-align: left;
+	border-bottom: 2px solid map-get($primary, 100);
+}
+
+td {
+	padding: .25em .5em;
+	text-align: left;
+	border-top: 1px solid map-get($primary, 100);
+}

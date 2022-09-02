@@ -1,0 +1,79 @@
+@import 'variables';
+
+nav {
+    ul {
+        list-style-type: none;
+        list-style-position: inside;
+
+        margin: 0;
+        margin-bottom: 1rem;
+        padding: 0;
+
+        font-size: .875rem;
+        font-weight: 500;
+    }
+
+    summary {
+        padding: 0 .5rem;
+        margin-top: 0;
+
+        color: map-get($primary, 200);
+        font-weight: bold;
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        display: block;
+
+        user-select: none;
+        cursor: pointer;
+
+        &::after {
+            margin-left: 1ch;
+            width: .5rem;
+            height: .5rem;
+
+            display: inline-block;
+
+            transition: 250ms;
+            content: '';
+    
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im04IDAtMyAzIDkgOS05IDkgMyAzIDEyLTEyeiIgZmlsbD0iIzRiNzBiZTg4Ii8+PC9zdmc+Cg==");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+
+    details[open] summary::after {
+        transform: rotate(90deg);
+    }
+
+    details summary~* {
+        transition: .5s all;
+        max-height: 0rem;
+    }
+
+    details[open] summary~* {
+        max-height: 32rem;
+    }
+
+    a {
+        display: block;
+        padding: 0 1rem;
+        color: map-get($primary, D200);
+        text-decoration: none;
+        border-radius: .25rem;
+
+        transition: .25s all;
+
+        &:hover {
+            color: black;
+            transform: translateX(.125rem);
+        }
+
+        &.selected {
+            background: map-get($primary, T100);
+        }
+    }
+}
