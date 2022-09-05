@@ -1,9 +1,34 @@
-{{/*  Loads all images from specified .path and creates <img> elements with specified .class  */}}
+{{/*  Loads all images from specified .path glob and creates <img> elements with specified .class  */}}
 
-{{ $imgDir := .path }}
+{{ $imgGlob := .path }}
 {{ $class := .class }}
-{{ $staticDir := print "/static/" $imgDir }}
-{{ range readDir $staticDir }}
-{{ $imgURL := print $imgDir .Name | absURL }}
-<img class="{{ $class }}" src="{{ $imgURL }}" />
+{{ $type := .type }}
+{{ $size := .size }}
+
+{{ range resources.Match $imgGlob }}
+{{ if eq .ResourceType "image" }}
+    {{ $imgMeta := split .Name "." }}
+    {{ $ext := index $imgMeta (sub (len $imgMeta) 1) }}
+
+    {{ if or (eq $ext "jpg") (eq $ext "png") }}
+
+    {{ $webp := .Resize (print $size " webp " $type) }}
+
+    <picture>
+        <source type="image/webp" srcset="{{ $webp.RelPermalink }}" />
+        <img class="{{ $class }}"
+             src="{{ .RelPermalink }}"
+             alt="{{ index $imgMeta 1 }}"
+             width="{{ .Width }}" height="{{ .Height }}" />
+    </picture>
+
+    {{ else }}
+
+    <img class="{{ $class }}"
+             src="{{ .RelPermalink }}"
+             alt="{{ index $imgMeta 1 }}" />
+
+    {{ end }}
+    
+{{ end }}
 {{ end }}

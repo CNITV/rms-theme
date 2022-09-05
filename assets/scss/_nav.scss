@@ -75,5 +75,10 @@ nav {
         &.selected {
             background: map-get($primary, T100);
         }
+
+        @media screen and (max-width: 960px) {
+            padding: 0.125rem 1rem;
+            margin: 0.125rem 0;
+        }
     }
 }

@@ -85,12 +85,13 @@ header {
             &::-webkit-scrollbar {
                 width: 0 !important;
             }
-        }
 
-        .sponsor {
-            display: inline-block;
-            height: 85%;
-            margin: 0 1rem;
+            img {
+                display: inline-block;
+                height: 85%;
+                width: auto;
+                margin: 0 1rem;
+            }
         }
     }
 }
