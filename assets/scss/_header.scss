@@ -18,11 +18,20 @@ header {
     border-style: solid;
     border-color: map-get($primary, 50);
 
-    .logo {
+    .link-home {
+        display: block;
+        position: relative;
+
+        margin: 0;
         margin-top: 3rem;
         max-width: 32rem;
         width: 75%;
-    
+    }
+
+    .logo {
+        display: block;
+        width: 100%;
+
         color: white;
     }
 
