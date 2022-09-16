@@ -1,8 +1,8 @@
 <aside class="floating">
-	<nav class="nav">
+	<nav class="nav" id="sidebar-nav">
 		{{ $permalink := print (relURL .Permalink) }}
 		{{ range .Site.Menus.main }}
-		<details open>
+		<details open id="{{ .Name | anchorize }}">
 			<summary>{{ if .URL }}<a href="{{ .URL }}">{{ end }}{{ .Name }}{{ if .URL }}</a>{{ end }}</summary>
 
 			{{ with .Children }}
@@ -20,4 +20,11 @@
 		</details>
 		{{ end }}
 	</nav>
+	<script>
+		sidebar = document.getElementById("sidebar-nav");
+		last = sidebar.lastElementChild;
+		
+		if (sidebar.clientHeight + 32 > window.innerHeight)
+			last.open = false;
+	</script>
 </aside>

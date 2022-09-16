@@ -14,7 +14,7 @@
 
     {{ $webp := .Resize (print $size " webp " $type) }}
 
-    <picture>
+    <picture class="{{ print $class "-container" }}">
         <source type="image/webp" srcset="{{ $webp.RelPermalink }}" />
         <img class="{{ $class }}"
              src="{{ .RelPermalink }}"
@@ -24,9 +24,9 @@
 
     {{ else }}
 
-    <img class="{{ $class }}"
-             src="{{ .RelPermalink }}"
-             alt="{{ index $imgMeta 1 }}" />
+    <img class="{{ print $class "-container" }} {{ $class }}"
+         src="{{ .RelPermalink }}"
+         alt="{{ index $imgMeta 1 }}" />
 
     {{ end }}
     

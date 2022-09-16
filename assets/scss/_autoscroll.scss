@@ -16,8 +16,6 @@
     top: 0;
     left: 0;
 
-    display: flex;
-
     overflow: hidden;
 
     animation: slide 10s linear infinite;
@@ -34,7 +32,7 @@
 }
 
 .auto-scroll img {
-    display: block;
+    display: inline-block;
     height: 100%;
     width: auto;
 
