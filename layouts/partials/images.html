@@ -24,9 +24,13 @@
 
     {{ else }}
 
+    {{ $dim := split (index $imgMeta 2) "x" }}
+
     <img class="{{ print $class "-container" }} {{ $class }}"
          src="{{ .RelPermalink }}"
-         alt="{{ index $imgMeta 1 }}" />
+         alt="{{ index $imgMeta 1 }}"
+         width="{{ index $dim 0 }}"
+         height="{{ index $dim 1 }}"/>
 
     {{ end }}
     
