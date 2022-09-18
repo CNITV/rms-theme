@@ -38,7 +38,7 @@ nav {
             transition: 250ms;
             content: '';
     
-            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im04IDAtMyAzIDkgOS05IDkgMyAzIDEyLTEyeiIgZmlsbD0iIzRiNzBiZTg4Ii8+PC9zdmc+Cg==");
+            background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20version%3D%221.1%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m8%200-3%203%209%209-9%209%203%203%2012-12z%22%20fill%3D%22#{encodecolor(map-get($primary, 200))}%22%2F%3E%3C%2Fsvg%3E');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center center;
