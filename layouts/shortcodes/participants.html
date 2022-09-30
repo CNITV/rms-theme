@@ -1,29 +1,37 @@
 {{ $last_team := "" }}
 {{ $printed_leaders := false }}
 {{ $first := true }}
+
 {{ range $i, $r := getCSV "," (.Get "file") }}
 	{{ $team := index $r 2 }}
 	{{ $country := lower (index $r 3) }}
 	{{ $first_name := index $r 0 }}
 	{{ $last_name := index $r 1 }}
-	{{ $leader := index $r 4 }}
+	{{ $role := index $r 4 }}
+
 	{{ if ne $team $last_team }}
 		{{ $last_team = $team }}
 		{{ $printed_leaders = false }}
+
 		{{ if not $first }}
-			</ol>
+			</ul>
 		{{ end }}
+
 		{{ $first = false }}
 		{{ partial "section.html" (dict "flag" $country "title" $team) }}
+
 		<h4>Leaders:</h4>
-		<ol>
+		<ul>
 	{{ end }}
-	{{ if and (eq "" $leader) (not $printed_leaders) }}
+
+	{{ if and (or (eq "" $role) (eq "Contestant" $role)) (not $printed_leaders) }}
 		{{ $printed_leaders = true }}
-		</ol>
+
+		</ul>
 		<h4>Students:</h4>
-		<ol>
+		<ul>
 	{{ end }}
+	
 	<li>{{ $first_name }} {{ $last_name }}</li>
 {{ end }}
-		</ol>
+		</ul>
