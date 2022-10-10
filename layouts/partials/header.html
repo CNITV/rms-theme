@@ -2,7 +2,11 @@
 	<a class="link-home" href="{{ .Site.BaseURL }}"><img class="logo" src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }} logo"></a>
 	<div class="info">
 		<span>{{ .Site.Params.heading }}</span>
+		{{ if .Site.Params.finished }}
+		<a href="{{ "/contest/results" | relURL }}">View results&nbsp;&nbsp;→</a>
+		{{ else }}
 		<a href="{{ "/organisation/schedule" | relURL }}">View schedule&nbsp;&nbsp;→</a>
+		{{ end }}
 	</div>
 	<div class="bar">
 		<span>ORGANISED BY</span>

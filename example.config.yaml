@@ -16,6 +16,7 @@ params:
   author_url: 'https://ciprian-ionescu.com/'
   useSlider: false
   baseColor: '#a50'
+  finished: false
 
 menu:
   main:
