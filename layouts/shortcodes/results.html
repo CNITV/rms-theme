@@ -40,25 +40,26 @@
                         <th class="bold">{{ $total }}</th>
                     </tr>
                 </thead>
-            {{ else if or (and $header (eq $i 1)) (eq $i 0) }}
-                <tbody>
             {{ else }}
-            <tr class="{{ $role }}">
-                <th>{{ $first_name }} {{ $last_name }}</th>
-                <td>{{ $team }}</th>
+                {{ if or (and $header (eq $i 1)) (eq $i 0) }}
+                    <tbody>
+                {{ end }}
+                <tr class="{{ $role }}">
+                    <th>{{ $first_name }} {{ $last_name }}</th>
+                    <td>{{ $team }}</th>
 
-                <td class="right">{{ $d1p1 }}</th>
-                <td class="right">{{ $d1p2 }}</th>
-                <td class="right">{{ $d1p3 }}</th>
-                <td class="right bold">{{ $d1total }}</th>
-                
-                <td class="right">{{ $d2p1 }}</th>
-                <td class="right">{{ $d2p2 }}</th>
-                <td class="right">{{ $d2p3 }}</th>
-                <td class="right bold">{{ $d2total }}</th>
+                    <td class="right">{{ $d1p1 }}</th>
+                    <td class="right">{{ $d1p2 }}</th>
+                    <td class="right">{{ $d1p3 }}</th>
+                    <td class="right bold">{{ $d1total }}</th>
+                    
+                    <td class="right">{{ $d2p1 }}</th>
+                    <td class="right">{{ $d2p2 }}</th>
+                    <td class="right">{{ $d2p3 }}</th>
+                    <td class="right bold">{{ $d2total }}</th>
 
-                <td class="right bold">{{ $total }}</th>
-            </tr>
+                    <td class="right bold">{{ $total }}</th>
+                </tr>
             {{ end }}
         {{ end }}
         </tbody>
